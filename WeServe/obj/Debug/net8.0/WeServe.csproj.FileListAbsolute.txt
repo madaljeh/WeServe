@@ -170,3 +170,4 @@ C:\Users\hp\Desktop\WeServeProject\WeServe\WeServe\obj\Debug\net8.0\refint\WeSer
 C:\Users\hp\Desktop\WeServeProject\WeServe\WeServe\obj\Debug\net8.0\WeServe.pdb
 C:\Users\hp\Desktop\WeServeProject\WeServe\WeServe\obj\Debug\net8.0\WeServe.genruntimeconfig.cache
 C:\Users\hp\Desktop\WeServeProject\WeServe\WeServe\obj\Debug\net8.0\ref\WeServe.dll
+C:\Users\hp\Desktop\WeServeProject\WeServe\WeServe\obj\Debug\net8.0\WeServe.sourcelink.json

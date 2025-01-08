@@ -18,7 +18,7 @@ public partial class BookingService
     public int Userid { get; set; }
 
     public int Serviceid { get; set; }
-    //
+
     public virtual Service ServiceNavigation { get; set; } = null!;
 
     public virtual User User { get; set; } = null!;
