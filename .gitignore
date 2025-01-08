@@ -1,1 +1,3 @@
 .vs/
+/WeServe/appsettings.json
+/WeServe/Models/MyDbContext.cs
