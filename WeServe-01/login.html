@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="icon" href="./Image/home-repair.png" type="image/png">
+  <link rel="stylesheet" href="./style/Login-Style.css">
+  <link rel="stylesheet" href="./style/Home-Style.css">
+  <!-- FontAwesome for social media icons -->
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> -->
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-container">
+        <img src="./Image/home-repair.png" alt="WeServe Logo" class="logo-image">
+        <div class="logo-text">WeServe</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#Service">Service</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html" class="login">Login</a></li>
+        <li><a href="Registe.html" class="signup">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container2">
+    <!-- Login Section -->
+    <div class="login-section">
+      <h2>Sign In</h2>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Username">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password">
+        <div class="options">
+          <label>
+            <input type="checkbox">
+          </label>
+          <a href="#">Forgot Password</a>
+        </div>
+        <button type="submit" class="btn sign-in">Sign In</button>
+      </form>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+      <h2>Welcome to Login</h2>
+      <p>Don't have an account?</p>
+      <a href="Registe.html" class="btn sign-up">Sign Up</a>
+    </div>
+  </div>
+</body>
+</html>

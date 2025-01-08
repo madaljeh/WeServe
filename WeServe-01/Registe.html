@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <link rel="icon" href="./Image/home-repair.png" type="image/png">
+  <link rel="stylesheet" href="./style/Register-Style.css">
+  <link rel="stylesheet" href="./style/Home-Style.css">
+</head>
+<body>
+
+   <!-- Navbar -->
+    <nav class="navbar">
+    <div class="container">
+      <div class="logo-container">
+        <img src="./Image/home-repair.png" alt="WeServe Logo" class="logo-image">
+        <div class="logo-text">WeServe</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#Service">Service</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html" class="login">Login</a></li>
+        <li><a href="Registe-R.html" class="signup">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav> 
+
+
+  <div class="container1">
+    <div class="tabs">
+      <button id="customerBtn" class="tab-btn active">Customer</button>
+      <button id="serviceProviderBtn" class="tab-btn">Service Provider</button>
+    </div>
+    <div class="form-container1">
+      <!-- Customer Registration Form -->
+      <div id="customerForm" class="form-box">
+        <h2>Register Customer</h2>
+        <form>
+          <label>User Name:</label>
+          <input type="text" placeholder="User Name" required>
+          <label>First Name:</label>
+          <input type="text" placeholder="First Name" required>
+          <label>Last Name:</label>
+          <input type="text" placeholder="Last Name" required>
+          <label>City:</label>
+          <input type="text" placeholder="City" required>
+          <label>Gender:</label>
+          <select>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <label>Phone:</label>
+          <input type="text" placeholder="07X-XXX-XXX-X" required>
+          <label>Email:</label>
+          <input type="email" placeholder="default@example.com" required>
+          <label>Password:</label>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+      </div>
+
+      <!-- Service Provider Registration Form -->
+      <div id="serviceProviderForm" class="form-box hidden">
+        <h2>Register Service Provider</h2>
+        <form>
+          <label>User Name:</label>
+          <input type="text" placeholder="User Name" required>
+          <label>First Name:</label>
+          <input type="text" placeholder="First Name" required>
+          <label>Last Name:</label>
+          <input type="text" placeholder="Last Name" required>
+          <label>City:</label>
+          <input type="text" placeholder="City" required>
+          <label>Gender:</label>
+          <select>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <label>Phone:</label>
+          <input type="text" placeholder="07X-XXX-XXX-X" required>
+          <label>Service Provider:</label>
+          <select>
+            <option value="Electrician">Electrician</option>
+            <option value="Plumber">Plumber</option>
+          </select>
+          <label>Price per Hour:</label>
+          <input type="text" placeholder="Price per Hour (JD)" required>
+          <label>Experience:</label>
+          <input type="text" placeholder="Experience Years" required>
+          <label>Email:</label>
+          <input type="email" placeholder="default@example.com" required>
+          <label>Password:</label>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const customerBtn = document.getElementById('customerBtn');
+    const serviceProviderBtn = document.getElementById('serviceProviderBtn');
+    const customerForm = document.getElementById('customerForm');
+    const serviceProviderForm = document.getElementById('serviceProviderForm');
+
+    customerBtn.addEventListener('click', () => {
+      customerForm.classList.remove('hidden');
+      serviceProviderForm.classList.add('hidden');
+      customerBtn.classList.add('active');
+      serviceProviderBtn.classList.remove('active');
+    });
+
+    serviceProviderBtn.addEventListener('click', () => {
+      serviceProviderForm.classList.remove('hidden');
+      customerForm.classList.add('hidden');
+      serviceProviderBtn.classList.add('active');
+      customerBtn.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
