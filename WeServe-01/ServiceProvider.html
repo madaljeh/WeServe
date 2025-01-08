@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Provider</title>
+  <link rel="icon" href="./Image/home-repair.png" type="image/png">
+  <link rel="stylesheet" href="./style/ServiceP_Style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-container">
+        <img src="./Image/home-repair.png" alt="WeServe Logo" class="logo-image">
+        <div class="logo-text">WeServe</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" id="profile-btn">Profile</a></li>
+        <li><a href="login.html" class="logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Left Content -->
+    <div class="content-left">
+      <!-- Add New Services Section -->
+      <div class="service-section">
+        <h2>Add New Services</h2>
+        <button class="btn" id="add-service-btn">Add New Service</button>
+      </div>
+
+      <!-- Services I Provide Section -->
+      <div class="provided-services">
+        <h2>Services I Provide</h2>
+        <ul id="services-list">
+          <!-- Services will be dynamically added here -->
+        </ul>
+      </div>
+
+      <!-- Orders Section -->
+      <div class="order-section">
+        <h2>Orders</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Contact Name</th>
+              <th>Service Name</th>
+              <th>Phone</th>
+              <th>Issue Details</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-01-03</td>
+              <td>11:22:00</td>
+              <td>Ahmed</td>
+              <td>Electrician</td>
+              <td>0775066789</td>
+              <td>Fix AC</td>
+              <td>Pending</td>
+              <td>
+                <button class="btn approve">Approve</button>
+                <button class="btn reject">Reject</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Profile Box -->
+    <div class="profile-box" id="profile-box">
+      <h2>Service Provider Profile</h2>
+      <p><strong>Name:</strong> <span id="profile-name">John Doe</span></p>
+      <p><strong>Email:</strong> <span id="profile-email">john@example.com</span></p>
+      <p><strong>Phone:</strong> <span id="profile-phone">+123 456 7890</span></p>
+      <p><strong>Specialization:</strong> <span id="profile-specialization">Electrician</span></p>
+    </div>
+  </div>
+
+  <!-- Add New Service Modal -->
+  <div class="modal" id="add-service-modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <h2>Add New Service</h2>
+      <label for="service-select">Choose a Service:</label>
+      <select id="service-select">
+        <option value="">Choose...</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Tile Setter">Tile Setter</option>
+        <option value="House Painter">House Painter</option>
+      </select>
+      <button class="btn submit-service" id="submit-service-btn">Submit</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const addServiceBtn = document.getElementById("add-service-btn");
+    const modal = document.getElementById("add-service-modal");
+    const closeModal = document.getElementById("close-modal");
+    const submitServiceBtn = document.getElementById("submit-service-btn");
+    const serviceSelect = document.getElementById("service-select");
+    const servicesList = document.getElementById("services-list");
+    const profileBtn = document.getElementById("profile-btn");
+    const profileBox = document.getElementById("profile-box");
+
+    // Show Modal
+    addServiceBtn.onclick = function () {
+      modal.style.display = "block";
+    };
+
+    // Hide Modal
+    closeModal.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    // Hide Modal When Clicking Outside
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+
+    // Show Profile Box
+    profileBtn.onclick = function () {
+      profileBox.classList.toggle("visible");
+    };
+
+    // Add Selected Service to "Services I Provide"
+    submitServiceBtn.onclick = function () {
+      const selectedService = serviceSelect.value;
+
+      if (selectedService) {
+        // Create a new list item
+        const listItem = document.createElement("li");
+        listItem.textContent = selectedService;
+
+        // Append the new service to the list
+        servicesList.appendChild(listItem);
+
+        // Clear selection and hide modal
+        serviceSelect.value = "";
+        modal.style.display = "none";
+      } else {
+        alert("Please choose a service!");
+      }
+    };
+  </script>
+</body>
+</html>

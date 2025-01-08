@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Booking Page</title>
+  <link rel="icon" href="./Image/home-repair.png" type="image/png">
+  <link rel="stylesheet" href="./style/Customer-Style.css">
+</head>
+<body>
+   <!-- Navbar -->
+   <nav class="navbar">
+    <div class="container">
+      <div class="logo-container">
+        <img src="./Image/home-repair.png" alt="WeServe Logo" class="logo-image">
+        <div class="logo-text">WeServe</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" id="profile-btn">Profile</a></li>
+        <li><a href="login.html" class="logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <div class="main-container">
+    <!-- Booking Service Form -->
+    <div class="booking-container">
+      <h1>Looking for a Booking</h1>
+      <div class="form-section">
+        <form>
+          <!-- Choose Services -->
+          <label for="choose-service">Choose Services:</label>
+          <select id="choose-service" required>
+            <option value="">Choose...</option>
+            <option value="Electrician">Electrician</option>
+            <option value="Plumber">Plumber</option>
+            <option value="Tile Setter">Tile Setter</option>
+            <option value="House Painter">House Painter</option>
+          </select>
+
+          <label for="choose-provider">Choose Services Provider:</label>
+<div class="provider-container">
+  <select id="choose-provider" required>
+    <option value="">Choose...</option>
+    <option value="John Doe">John Doe</option>
+    <option value="Ahmed Khan">Ahmed Khan</option>
+  </select>
+  <button type="button" class="view-profile-icon-btn" id="toggle-provider-profile">
+    <img src="https://img.icons8.com/material-outlined/24/000000/visible.png" alt="View Profile" />
+  </button>
+</div>
+
+<!-- Service Provider Profile -->
+<div id="provider-profile" class="provider-profile">
+  <h3>Service Provider Profile</h3>
+  <p><strong>Name:</strong> <span id="provider-name">N/A</span></p>
+  <p><strong>Email:</strong> <span id="provider-email">N/A</span></p>
+  <p><strong>Phone:</strong> <span id="provider-phone">N/A</span></p>
+</div>
+
+
+          
+
+          <!-- Booking Date -->
+          <label for="booking-date">Date of your Booking:</label>
+          <input type="date" id="booking-date" required>
+
+          <!-- Booking Time -->
+          <label for="booking-time">Time for your Booking:</label>
+          <input type="time" id="booking-time" required>
+
+          <!-- Info Box -->
+          <div class="info-box">Booking hours are 8am to 1pm</div>
+
+          <!-- Problem Details -->
+          <label for="details">Details about your problem:</label>
+          <textarea id="details" rows="4" placeholder="Provide details about the issue..." required></textarea>
+
+          <!-- Booking Button -->
+          <button type="submit" class="btn">Booking Service</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Profile Box -->
+    <div class="profile-box" id="profile-box">
+      <h2>Customer Profile</h2>
+      <p><strong>Name:</strong> <span id="profile-name">Jane Doe</span></p>
+      <p><strong>Email:</strong> <span id="profile-email">jane@example.com</span></p>
+      <p><strong>Phone:</strong> <span id="profile-phone">+123 456 7890</span></p>
+    </div>
+  </div>
+
+  <script>
+        // Service provider data
+      const serviceProviders = {
+        "John Doe": {
+          name: "John Doe",
+          email: "john.doe@example.com",
+          phone: "+123 456 7890",
+        },
+        "Ahmed Khan": {
+          name: "Ahmed Khan",
+          email: "ahmed.khan@example.com",
+          phone: "+987 654 3210",
+        },
+      };
+
+      // Get references to elements
+      const providerSelect = document.getElementById("choose-provider");
+      const providerProfileDiv = document.getElementById("provider-profile");
+      const providerName = document.getElementById("provider-name");
+      const providerEmail = document.getElementById("provider-email");
+      const providerPhone = document.getElementById("provider-phone");
+      const toggleProviderProfileBtn = document.getElementById("toggle-provider-profile");
+
+      const profileBtn = document.getElementById("profile-btn");
+      const profileBox = document.getElementById("profile-box");
+
+      // Functionality for the Service Provider Profile Button
+      toggleProviderProfileBtn.addEventListener("click", function () {
+        const selectedProvider = providerSelect.value;
+
+        if (serviceProviders[selectedProvider]) {
+          // Update profile details
+          providerName.textContent = serviceProviders[selectedProvider].name;
+          providerEmail.textContent = serviceProviders[selectedProvider].email;
+          providerPhone.textContent = serviceProviders[selectedProvider].phone;
+
+          // Toggle visibility of the provider profile
+          providerProfileDiv.style.display = providerProfileDiv.style.display === "none" || providerProfileDiv.style.display === "" ? "block" : "none";
+        } else {
+          // Show alert if no provider is selected
+          alert("Please select a service provider from the dropdown.");
+          providerProfileDiv.style.display = "none";
+        }
+      });
+
+      // Functionality for the Customer Profile Button
+      profileBtn.addEventListener("click", function () {
+        // Toggle visibility of the customer profile box
+        profileBox.classList.toggle("visible");
+
+        // Hide provider profile (if open) for better user experience
+        if (providerProfileDiv.style.display === "block") {
+          providerProfileDiv.style.display = "none";
+        }
+      });
+
+  </script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  .container1 {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #007bff;
+  }
+  
+  .tab-btn {
+    flex: 1;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .tab-btn.active {
+    background: #0056b3;
+  }
+  
+  .tab-btn:hover {
+    background: #0056b3;
+  }
+  
+  .form-container1 {
+    padding: 20px;
+  }
+  
+  .form-box {
+    display: block;
+  }
+  
+  .form-box.hidden {
+    display: none;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  form input, form select {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .submit-btn {
+    width:100%;
+    padding: 10px;
+    background: #002b80;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .submit-btn:hover {
+    background: #0056b3;
+  }
+  
