@@ -158,6 +158,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WeServe.Controllers.ContactuController",
+    "Method": "CreateContact",
+    "RelativePath": "api/Contactu/createcontact",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "WeServe.DTO.ContactuDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeServe.Controllers.ContactuController",
+    "Method": "DeleteContact",
+    "RelativePath": "api/Contactu/deletecontact/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeServe.Controllers.ContactuController",
+    "Method": "GetAllContacts",
+    "RelativePath": "api/Contactu/getallcontacts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeServe.Controllers.ContactuController",
+    "Method": "GetContactById",
+    "RelativePath": "api/Contactu/getcontact/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeServe.Controllers.ContactuController",
+    "Method": "UpdateContact",
+    "RelativePath": "api/Contactu/updatecontact/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "WeServe.DTO.ContactuDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WeServe.Controllers.RegisterController",
     "Method": "GetAllUsers",
     "RelativePath": "api/Register/getallusers",
