@@ -7,6 +7,8 @@
   <link rel="icon" href="./Image/home-repair.png" type="image/png">
   <link rel="stylesheet" href="./style/Register-Style.css">
   <link rel="stylesheet" href="./style/Home-Style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
 
@@ -38,63 +40,63 @@
       <!-- Customer Registration Form -->
       <div id="customerForm" class="form-box">
         <h2>Register Customer</h2>
-        <form>
+        <form id="registerform">
           <label>User Name:</label>
-          <input type="text" placeholder="User Name" required>
+          <input name="UserName" type="text" placeholder="User Name" required>
           <label>First Name:</label>
-          <input type="text" placeholder="First Name" required>
+          <input name="FisrtName" type="text" placeholder="First Name" required>
           <label>Last Name:</label>
-          <input type="text" placeholder="Last Name" required>
+          <input name="LastName"  type="text" placeholder="Last Name" required>
           <label>City:</label>
-          <input type="text" placeholder="City" required>
+          <input name="City" type="text" placeholder="City" required>
           <label>Gender:</label>
-          <select>
+          <select name="Gender">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
           <label>Phone:</label>
-          <input type="text" placeholder="07X-XXX-XXX-X" required>
+          <input name="Phone" type="text" placeholder="07X-XXX-XXX-X" required>
           <label>Email:</label>
-          <input type="email" placeholder="default@example.com" required>
+          <input name="Emailaddress" type="email" placeholder="default@example.com" required>
           <label>Password:</label>
-          <input type="password" placeholder="Password" required>
-          <button type="submit" class="submit-btn">Sign Up</button>
+          <input name="Password" type="password" placeholder="Password" required>
+          <button onclick="register()" type="submit" class="submit-btn">Sign Up</button>
         </form>
       </div>
 
       <!-- Service Provider Registration Form -->
       <div id="serviceProviderForm" class="form-box hidden">
         <h2>Register Service Provider</h2>
-        <form>
+        <form id="registerform2">
           <label>User Name:</label>
-          <input type="text" placeholder="User Name" required>
+          <input name="UserName" type="text" placeholder="User Name" required>
           <label>First Name:</label>
-          <input type="text" placeholder="First Name" required>
+          <input name="FisrtName" type="text" placeholder="First Name" required>
           <label>Last Name:</label>
-          <input type="text" placeholder="Last Name" required>
+          <input name="LastName" type="text" placeholder="Last Name" required>
           <label>City:</label>
-          <input type="text" placeholder="City" required>
+          <input name="City" type="text" placeholder="City" required>
           <label>Gender:</label>
-          <select>
+          <select name="Gender">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
           <label>Phone:</label>
-          <input type="text" placeholder="07X-XXX-XXX-X" required>
+          <input name="Phone" type="text" placeholder="07X-XXX-XXX-X" required>
           <label>Service Provider:</label>
-          <select>
+          <select name="JobTitle">
             <option value="Electrician">Electrician</option>
             <option value="Plumber">Plumber</option>
           </select>
           <label>Price per Hour:</label>
-          <input type="text" placeholder="Price per Hour (JD)" required>
+          <input name="PricePerHour" type="text" placeholder="Price per Hour (JD)" required>
           <label>Experience:</label>
-          <input type="text" placeholder="Experience Years" required>
+          <input name="Experience" type="text" placeholder="Experience Years" required>
           <label>Email:</label>
-          <input type="email" placeholder="default@example.com" required>
+          <input name="Password" type="email" placeholder="default@example.com" required>
           <label>Password:</label>
-          <input type="password" placeholder="Password" required>
-          <button type="submit" class="submit-btn">Sign Up</button>
+          <input name="" type="password" placeholder="Password" required>
+          <button onclick="registerr()" type="submit" class="submit-btn">Sign Up</button>
         </form>
       </div>
     </div>
@@ -120,5 +122,8 @@
       customerBtn.classList.remove('active');
     });
   </script>
+
+
+<script src="/js/register.js"></script>
 </body>
 </html>

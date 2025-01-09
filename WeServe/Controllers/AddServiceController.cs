@@ -16,6 +16,8 @@ namespace WeServe.Controllers
             _db = db;
         }
 
+
+
         [HttpGet("getallservices")]
         public IActionResult GetAllServices()
         {
@@ -94,6 +96,15 @@ namespace WeServe.Controllers
 
             return Ok(new { Message = "Service deleted successfully." });
         }
+
+
+      
     }
+
+
+   
+    
 }
+
+
 
