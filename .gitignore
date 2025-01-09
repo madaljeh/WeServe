@@ -1,3 +1,15 @@
 .vs/
 /WeServe/appsettings.json
 /WeServe/Models/MyDbContext.cs
+/WeServe/bin/Debug/net8.0/WeServe.dll
+/WeServe/bin/Debug/net8.0/WeServe.exe
+/WeServe/obj/Debug/net8.0/ref/WeServe.dll
+/WeServe/obj/Debug/net8.0/WeServe.dll
+/WeServe/obj/Debug/net8.0/WeServe.pdb
+/WeServe/obj/Debug/net8.0/WeServe.csproj.FileListAbsolute.txt
+/WeServe/obj/Debug/net8.0/WeServe.AssemblyInfoInputs.cache
+/WeServe/obj/Debug/net8.0/WeServe.AssemblyInfo.cs
+/WeServe/obj/Debug/net8.0/apphost.exe
+/WeServe/obj/Debug/net8.0/WeServe.sourcelink.json
+/WeServe/obj/Debug/net8.0/refint/WeServe.dll
+/WeServe/bin/Debug/net8.0/WeServe.pdb
