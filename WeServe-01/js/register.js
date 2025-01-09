@@ -105,7 +105,7 @@ async function login() {
       localStorage.setItem("UserId", result.idPerson);
       Swal.fire({
         title: "Success!",
-        text: "Logged in as Admin.",
+        text: "Logged in as User.",
         icon: "success",
         timer: 3000,
         timerProgressBar: true,
@@ -117,7 +117,7 @@ async function login() {
       localStorage.setItem("UserId", result.idPerson);
       Swal.fire({
         title: "Success!",
-        text: "Logged in successfully.",
+        text: "Logged in As Service Provider.",
         icon: "success",
         timer: 3000,
         timerProgressBar: true,
