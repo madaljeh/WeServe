@@ -86,7 +86,58 @@ body {
   padding: 20px;
   justify-content: space-between;
   align-items: flex-start;
+  
 }
+/*Order pox*/
+
+.order-section {
+  text-align: center;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #002b80;
+  color: #fff;
+}
+.btn {
+  padding: 10px 20px;
+  background-color: #002b80;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: #004aad;
+}
+
+.approve {
+  background-color: #28a745;
+}
+
+.reject {
+  background-color: #dc3545;
+}
+
 
 /* Booking Section */
 .booking-container {
