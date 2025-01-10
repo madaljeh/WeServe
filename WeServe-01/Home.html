@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./style/Home-Style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body>
@@ -105,12 +106,12 @@
     </div>
     <h2>Get in touch</h2>
     <p>We'd love to hear from you</p>
-    <form class="contact-form">
-      <input type="text" placeholder="Full name" required>
-      <input type="email" placeholder="Email address" required>
-      <input type="text" placeholder="Phone number" required>
-      <textarea placeholder="Message" rows="4" required></textarea>
-      <button type="submit" class="submit-bttn">Submit</button>
+    <form class="contact-form" id="contactForm">
+      <input type="text" id="fullname" placeholder="Full name" required>
+      <input type="email" id="email" placeholder="Email address" required>
+      <input type="text" id="phonenumber" placeholder="Phone number" required>
+      <textarea id="massage" placeholder="Message" rows="4" required></textarea>
+      <button  type="submit" class="submit-bttn">Submit</button>
     </form>
   </div>
 </section>
@@ -130,6 +131,6 @@
     </div>
   </div>
 </footer>
-
+<script src="/js/contact.js"></script>
 </body>
 </html>
