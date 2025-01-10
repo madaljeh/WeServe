@@ -239,7 +239,23 @@
   {
     "ContainingType": "WeServe.Controllers.RegisterController",
     "Method": "GetAllUsers",
-    "RelativePath": "api/Register/getallusers",
+    "RelativePath": "api/Register/getallusers/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeServe.Controllers.RegisterController",
+    "Method": "GetAllUsers1",
+    "RelativePath": "api/Register/getallusersinfo",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

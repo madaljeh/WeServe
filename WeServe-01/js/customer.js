@@ -1,5 +1,5 @@
 // Fetch data from the API and handle both dropdowns
-fetch('https://localhost:44348/api/Register/getallusers', {
+fetch('https://localhost:44348/api/Register/getallusersinfo', {
     method: 'GET',
     headers: {
       'Accept': '*/*',
