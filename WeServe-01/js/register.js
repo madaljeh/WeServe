@@ -79,7 +79,6 @@ async function registerr() {
 
 
 
-
 const Log_in = "https://localhost:44348/api/Register/login";
 async function login() {
     debugger
@@ -142,4 +141,4 @@ async function login() {
       confirmButtonText: "OK",
     });
   }
-}
+} 
