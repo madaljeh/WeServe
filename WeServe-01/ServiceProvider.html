@@ -6,6 +6,106 @@
   <title>Service Provider</title>
   <link rel="icon" href="./Image/home-repair.png" type="image/png">
   <link rel="stylesheet" href="./style/ServiceP_Style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    /* Modal container */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  animation: fadeIn 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Modal header */
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #555;
+  cursor: pointer;
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit button styling */
+.btn.submit-service {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn.submit-service:hover {
+  background-color: #0056b3;
+}
+
+/* Animation for modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -90,17 +190,22 @@
     <div class="modal-content">
       <span class="close" id="close-modal">&times;</span>
       <h2>Add New Service</h2>
-      <label for="service-select">Choose a Service:</label>
-      <select id="service-select">
-        <option value="">Choose...</option>
-        <option value="Electrician">Electrician</option>
-        <option value="Plumber">Plumber</option>
-        <option value="Tile Setter">Tile Setter</option>
-        <option value="House Painter">House Painter</option>
-      </select>
-      <button class="btn submit-service" id="submit-service-btn">Submit</button>
+      <form id="add-service-form">
+        <div class="form-group">
+          <label for="serviceProviderName">Service Name</label>
+          <input type="text" id="serviceProviderName" placeholder="Enter service name" required>
+        </div>
+        <div class="form-group">
+          <label for="priceperhour">Price Per Hour</label>
+          <input type="number" id="priceperhour" placeholder="Enter price per hour" required>
+        </div>
+        <button type="button" class="btn submit-service" onclick="newservice()" id="submit-service-btn">
+          Submit
+        </button>
+      </form>
     </div>
   </div>
+  
 
   <!-- JavaScript -->
   <script>
@@ -155,5 +260,6 @@
       }
     };
   </script>
+  <script src="js/serviceprovider.js"></script>
 </body>
 </html>

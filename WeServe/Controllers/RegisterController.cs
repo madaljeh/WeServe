@@ -19,17 +19,17 @@ namespace WeServe.Controllers
         [HttpGet("getallusers/{id}")]
         public IActionResult GetAllUsers(int id)
         {
-            var users = _db.Users.Where(x=> x.IdPerson==id).ToList();
+            var users = _db.Users.Where(x => x.IdPerson == id).ToList();
             return Ok(users);
         }
-        
+
         [HttpGet("getallusersinfo")]
         public IActionResult GetAllUsers1()
         {
             var users = _db.Users.ToList();
             return Ok(users);
         }
-        
+
         [HttpPost("register")]
         public IActionResult Register([FromForm] registerDTO dto)
         {
