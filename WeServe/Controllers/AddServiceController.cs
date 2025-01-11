@@ -18,18 +18,18 @@ namespace WeServe.Controllers
 
 
 
-        [HttpGet("getallservices")]
-        public IActionResult GetAllServices()
-        {
-            var services = _db.Services.Select(s => new AddServiceDTO
-            {
-                ServiceId = s.Serviceid,
-                ServiceProviderName = s.ServiceProvidername,
-                UserId = s.Userid
-            }).ToList();
+        //[HttpGet("getallservices")]
+        //public IActionResult GetAllServices()
+        //{
+        //    var services = _db.Services.Select(s => new AddServiceDTO
+        //    {
+        //        ServiceId = s.Serviceid,
+        //        ServiceProviderName = s.ServiceProvidername,
+        //        UserId = s.Userid
+        //    }).ToList();
 
-            return Ok(services);
-        }
+        //    return Ok(services);
+        //}
 
         [HttpPost("createservice")]
         public IActionResult CreateService([FromBody] AddServiceDTO dto)
@@ -40,7 +40,8 @@ namespace WeServe.Controllers
             var newService = new Service
             {
                 ServiceProvidername = dto.ServiceProviderName,
-                Userid = dto.UserId
+                Userid = dto.UserId,
+                Priceperhour=dto.Priceperhour
             };
 
             _db.Services.Add(newService);
@@ -49,23 +50,23 @@ namespace WeServe.Controllers
             return Ok(new { Message = "Service created successfully.", ServiceId = newService.Serviceid });
         }
 
-        [HttpGet("getservice/{id}")]
-        public IActionResult GetServiceById(int id)
-        {
-            var service = _db.Services.FirstOrDefault(s => s.Serviceid == id);
+        //[HttpGet("getservice/{id}")]
+        //public IActionResult GetServiceById(int id)
+        //{
+        //    var service = _db.Services.FirstOrDefault(s => s.Serviceid == id);
 
-            if (service == null)
-                return NotFound("Service not found.");
+        //    if (service == null)
+        //        return NotFound("Service not found.");
 
-            var serviceDto = new AddServiceDTO
-            {
-                ServiceId = service.Serviceid,
-                ServiceProviderName = service.ServiceProvidername,
-                UserId = service.Userid
-            };
+        //    var serviceDto = new AddServiceDTO
+        //    {
+        //        ServiceId = service.Serviceid,
+        //        ServiceProviderName = service.ServiceProvidername,
+        //        UserId = service.Userid
+        //    };
 
-            return Ok(serviceDto);
-        }
+        //    return Ok(serviceDto);
+        //}
 
         [HttpPut("updateservice/{id}")]
         public IActionResult UpdateService(int id, [FromBody] AddServiceDTO dto)
@@ -98,12 +99,12 @@ namespace WeServe.Controllers
         }
 
 
-      
+
     }
 
 
-   
-    
+
+
 }
 
 
