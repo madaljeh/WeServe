@@ -11,6 +11,8 @@ public partial class Service
 
     public int Userid { get; set; }
 
+    public int? Priceperhour { get; set; }
+
     public virtual ICollection<BookingService> BookingServices { get; set; } = new List<BookingService>();
 
     public virtual User User { get; set; } = null!;
