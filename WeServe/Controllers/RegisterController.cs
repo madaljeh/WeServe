@@ -2,6 +2,7 @@
 using WeServe.DTO;
 using WeServe.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace WeServe.Controllers
 {
@@ -26,7 +27,14 @@ namespace WeServe.Controllers
         [HttpGet("getallusersinfo")]
         public IActionResult GetAllUsers1()
         {
-            var users = _db.Users.ToList();
+            var users = _db.Services
+                .Include(x => x.User)
+                .Select((x) => new
+                {
+                    servicename = x.ServiceProvidername,
+                    serviceid = x.Serviceid,
+                    serviceprovider = x.User.FisrtName + x.User.LastName
+                });
             return Ok(users);
         }
 

@@ -50,6 +50,13 @@ namespace WeServe.Controllers
             return Ok(new { Message = "Service created successfully.", ServiceId = newService.Serviceid });
         }
 
+        [HttpGet("getallservicebyuserID/{id}")]
+        public IActionResult getallservicebyuserID(int id)
+        {
+            var service = _db.Services.Where(x => x.Userid == id).ToList();
+            return Ok(service);
+        }
+
         //[HttpGet("getservice/{id}")]
         //public IActionResult GetServiceById(int id)
         //{

@@ -33,18 +33,8 @@
   },
   {
     "ContainingType": "WeServe.Controllers.AddServiceController",
-    "Method": "GetAllServices",
-    "RelativePath": "api/AddService/getallservices",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WeServe.Controllers.AddServiceController",
-    "Method": "GetServiceById",
-    "RelativePath": "api/AddService/getservice/{id}",
+    "Method": "getallservicebyuserID",
+    "RelativePath": "api/AddService/getallservicebyuserID/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

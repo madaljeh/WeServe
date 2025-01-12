@@ -5,18 +5,6 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/AddService/getallservices": {
-      "get": {
-        "tags": [
-          "AddService"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/AddService/createservice": {
       "post": {
         "tags": [
@@ -48,7 +36,7 @@
         }
       }
     },
-    "/api/AddService/getservice/{id}": {
+    "/api/AddService/getallservicebyuserID/{id}": {
       "get": {
         "tags": [
           "AddService"
@@ -562,10 +550,6 @@
       "AddServiceDTO": {
         "type": "object",
         "properties": {
-          "serviceId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "serviceProviderName": {
             "type": "string",
             "nullable": true
@@ -573,6 +557,11 @@
           "userId": {
             "type": "integer",
             "format": "int32"
+          },
+          "priceperhour": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
