@@ -1,8 +1,8 @@
 const url = "https://localhost:44348/api/AddService/createservice";
 
 async function newservice(event) {
-    debugger
-//   event.preventDefault(); 
+  debugger
+  // event.preventDefault(); // Uncomment if this is used within a form submission
 
   const data = {
     serviceProviderName: document.getElementById("serviceProviderName").value,
@@ -28,9 +28,14 @@ async function newservice(event) {
         text: "The service has been added successfully.",
         icon: "success",
         confirmButtonText: "OK",
-      })
+      });
+
+      // Delay the reload for 3 seconds (3000ms)
+      setTimeout(() => {
+        location.reload();
+      }, 1500);
     } else {
-      // التعامل مع الأخطاء بناءً على حالة الاستجابة
+      // Handle errors based on the response status
       let errorMessage;
       switch (response.status) {
         case 404:
@@ -51,7 +56,7 @@ async function newservice(event) {
       });
     }
   } catch (error) {
-    // التعامل مع الأخطاء العامة (مثل مشاكل الشبكة)
+    // General error handling (like network issues)
     console.error("Error while adding the service:", error);
     Swal.fire({
       title: "Error!",
@@ -61,8 +66,6 @@ async function newservice(event) {
     });
   }
 }
-
-
 
 
 async function getalldata() {
@@ -96,6 +99,7 @@ async function getalldata() {
     });}
   getalldata();
   
+
   
   async function deleteservices(id) {
     const result = await Swal.fire({
