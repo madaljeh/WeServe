@@ -1,5 +1,6 @@
 // Fetch services and populate the dropdowns
 fetch('https://localhost:44348/api/Register/getallusersinfo', {
+  
   method: 'GET',
   headers: {
     'Accept': '*/*',
@@ -55,6 +56,7 @@ fetch('https://localhost:44348/api/Register/getallusersinfo', {
 
 // Handle form submission for booking
 document.querySelector('form').addEventListener('submit', function (event) {
+  debugger
   event.preventDefault(); // Prevent the default form submission
 
   // Collect data from the form
@@ -85,7 +87,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     date: date,
     detailsProblem: details,
     status: true, // Default status for new bookings
-    userId: parseInt(providerId), // Provider's ID as the user ID
+    userId: localStorage.getItem("UserId"), // Provider's ID as the user ID
     serviceId: parseInt(providerId), // Adjust serviceId based on your specific logic
   };
 
