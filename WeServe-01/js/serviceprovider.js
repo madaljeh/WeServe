@@ -29,6 +29,7 @@ async function newservice(event) {
         icon: "success",
         confirmButtonText: "OK",
       })
+      
     } else {
       // التعامل مع الأخطاء بناءً على حالة الاستجابة
       let errorMessage;
