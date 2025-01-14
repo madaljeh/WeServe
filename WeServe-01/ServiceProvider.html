@@ -41,7 +41,7 @@
             <thead>
               <tr>
                 <th>Service Name</th>
-                <th>Price/Houre</th>
+                <th>Price(JOD) / Houre</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -55,7 +55,6 @@
         </ul>
       </div>
 
-      <!-- Orders Section -->
       <div class="order-section">
         <h2>Orders</h2>
         <table>
@@ -71,24 +70,9 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>2025-01-03</td>
-              <td>11:22:00</td>
-              <td>Ahmed</td>
-              <td>Electrician</td>
-              <td>0775066789</td>
-              <td>Fix AC</td>
-              <td>Pending</td>
-              <td>
-                <button class="btn approve">Approve</button>
-                <button class="btn reject">Reject</button>
-              </td>
-            </tr>
-          </tbody>
+          <tbody></tbody> <!-- Empty body for dynamic rows -->
         </table>
       </div>
-    </div>
 
     <!-- Profile Box -->
     <div class="profile-box" id="profile-box">
@@ -111,7 +95,7 @@
           <input type="text" id="serviceProviderName" placeholder="Enter service name" required>
         </div>
         <div class="form-group">
-          <label for="priceperhour">Price Per Hour</label>
+          <label for="priceperhour">Price Per Hour/JOD</label>
           <input type="number" id="priceperhour" placeholder="Enter price per hour" required>
         </div>
         <button type="button" class="btn submit-service" onclick="newservice()" id="submit-service-btn">
@@ -135,7 +119,7 @@
           <input name="ServiceProviderName" type="text" id="editServiceProviderName" placeholder="Enter service name" required>
         </div>
         <div class="form-group">
-          <label for="editPricePerHour">Price Per Hour</label>
+          <label for="editPricePerHour">Price Per Hour/JOD</label>
           <input name="Priceperhour" type="number" id="editPricePerHour" placeholder="Enter price per hour" required>
         </div>
         
@@ -216,5 +200,6 @@
 
   </script>
   <script src="js/serviceprovider.js"></script>
+  <script src="js/order.js"></script>
 </body>
 </html>

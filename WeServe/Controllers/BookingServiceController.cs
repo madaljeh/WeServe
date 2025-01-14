@@ -2,6 +2,7 @@
 using WeServe.DTO;
 using WeServe.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace WeServe.Controllers
 {

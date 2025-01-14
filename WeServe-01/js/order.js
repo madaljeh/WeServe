@@ -34,10 +34,10 @@ async function fetchBookings() {
             <td>${booking.service}</td>
             <td>${booking.phone || "N/A"}</td>
             <td>${booking.detailsProblem}</td>
-            <td>${booking.status ? "Approved" : "Pending"}</td>
+            <td>${booking.status ? "Pending" : "Approved"}</td>
             <td>
               <button class="btn approve" onclick="approveBooking(${booking.bookingServiceId})">Approve</button>
-              <button class="btn reject" onclick="rejectBooking(${booking.bookingServiceId})">Reject</button>
+              <button class="btn reject" onclick="deletebooking(${booking.bookingServiceId})">DELETE</button>
             </td>
           </tr>
         `;
@@ -58,6 +58,44 @@ async function fetchBookings() {
   // Call the function to fetch and display bookings
   fetchBookings();
   
+
+
+  async function deletebooking(id) {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "This service will be deleted!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    });
+    if (result.isConfirmed) {
+      var delet = `https://localhost:44348/api/BookingService/deletebooking/${id}`;
+      var response = await fetch(delet, {
+        method: "DELETE",
+      });
+      console.log("Response Status:", response.status);
+      console.log("Response OK:", response.ok);
+      if (response.ok) {
+        await Swal.fire(
+          "Deleted!",
+          "The service has been deleted successfully.",
+          "success"
+        );
+        location.reload();
+      } else {
+        const errorMessage = await response.text();
+        await Swal.fire(
+          "Error!",
+          `There was an error deleting the service: ${errorMessage}`,
+          "error"
+        );
+      }
+    }
+  }
+
+
   // Add placeholder functions for Approve and Reject actions
   function approveBooking(bookingId) {
     console.log("Approve booking with ID:", bookingId);

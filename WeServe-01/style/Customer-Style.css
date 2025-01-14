@@ -180,14 +180,26 @@ th {
   resize: none;
 }
 
+/* Info Box Styling */
 .info-box {
-  background-color: #002b80;
+  background-color: #002b80; /* Initial background color */
   color: white;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 15px;
   text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  animation: blinkBackground 1.5s infinite; /* Blinking effect */
 }
+
+/* Blinking Animation */
+@keyframes blinkBackground {
+  0% { background-color: #002b80; } /* Initial color */
+  50% { background-color: #0056e0; } /* Lighter blue */
+  100% { background-color: #002b80; } /* Back to initial color */
+}
+
 
 .form-section .btn {
   background-color: #002b80;
