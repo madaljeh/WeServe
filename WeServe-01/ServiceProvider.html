@@ -123,6 +123,44 @@
 
 
 
+
+  <div class="modal" id="edit-service-modal" >
+    <div class="modal-content">
+      <span class="close" id="close-edit-modal" onclick="closeEditModal()">&times;</span>
+      <h2>Edit Service</h2>
+      <form id="edit-service-form">
+        <input id="id" type="hidden">
+        <div class="form-group">
+          <label for="editServiceProviderName">Service Name</label>
+          <input name="ServiceProviderName" type="text" id="editServiceProviderName" placeholder="Enter service name" required>
+        </div>
+        <div class="form-group">
+          <label for="editPricePerHour">Price Per Hour</label>
+          <input name="Priceperhour" type="number" id="editPricePerHour" placeholder="Enter price per hour" required>
+        </div>
+        
+        <button type="button" class="btn submit-edit-service" onclick="updateservice()" id="submit-edit-service-btn">
+          Save Changes
+        </button>
+      </form>
+    </div>
+  </div>
+  
+
+  
+
+
+
+
+  <script>
+
+    function closeEditModal() {
+    document.getElementById("edit-service-modal").style.display = "none";
+}
+  </script>
+
+
+
   <!-- JavaScript -->
   <script>
     const addServiceBtn = document.getElementById("add-service-btn");

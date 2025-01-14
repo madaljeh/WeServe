@@ -91,7 +91,8 @@ async function getalldata() {
                 <td>${product.serviceProvidername}</td>
                 <td>${product.priceperhour}</td>
                 <td>
-                  <button class="btn approve">Edite</button>
+                  <button class="btn approve" onclick="getservicesbyid(${product.serviceid})">Edit</button>
+
                   <button class="btn reject"  onclick="deleteservices(${product.serviceid})">Delete</button>
                 </td>
               </tr>
@@ -133,5 +134,69 @@ async function getalldata() {
           "error"
         );
       }
+    }
+  }
+
+
+
+
+
+
+  async function getservicesbyid(id) {
+    try {
+        var urll1 = `https://localhost:44348/api/AddService/getservice/${id}`;
+        var response = await fetch(urll1);
+        
+        
+        var service = await response.json();
+
+        document.getElementById("id").value = service.serviceid;
+        document.getElementById("editServiceProviderName").value = service.serviceProvidername;
+        document.getElementById("editPricePerHour").value = service.priceperhour;
+
+        document.getElementById("edit-service-modal").style.display = "flex";
+    } catch (error) {
+        console.error("Error fetching service data:", error);
+        alert("Failed to fetch service details. Please try again.");
+    }
+}
+
+
+  
+async function updateservice() {
+    debugger
+    var id =  document.getElementById("id").value;
+    var update = `https://localhost:44348/api/AddService/updateservice/${id}`;
+    var formData = new FormData(document.getElementById("edit-service-form"));
+  
+    // طباعة بيانات النموذج
+  
+    var response = await fetch(update, {
+      method: "PUT",
+      body: formData,
+    });
+  
+    console.log("Response Status:", response.status);
+    console.log("Response OK:", response.ok);
+  
+    if (response.ok) {
+      await Swal.fire({
+        title: "Success!",
+        text: "service updated successfully.",
+        icon: "success",
+      });
+  
+      document.getElementById("edit-service-modal").style.display = "hidden";
+  
+      setTimeout(() => {
+        location.reload();
+      }, 1000); 
+    } else {
+      const errorMessage = await response.text();
+      await Swal.fire({
+        title: "Error!",
+        text: `Failed to update service: ${errorMessage}`,
+        icon: "error",
+      });
     }
   }

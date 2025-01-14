@@ -57,28 +57,19 @@ namespace WeServe.Controllers
             return Ok(service);
         }
 
-        //[HttpGet("getservice/{id}")]
-        //public IActionResult GetServiceById(int id)
-        //{
-        //    var service = _db.Services.FirstOrDefault(s => s.Serviceid == id);
-
-        //    if (service == null)
-        //        return NotFound("Service not found.");
-
-        //    var serviceDto = new AddServiceDTO
-        //    {
-        //        ServiceId = service.Serviceid,
-        //        ServiceProviderName = service.ServiceProvidername,
-        //        UserId = service.Userid
-        //    };
-
-        //    return Ok(serviceDto);
-        //}
-
-        [HttpPut("updateservice/{id}")]
-        public IActionResult UpdateService(int id, [FromBody] AddServiceDTO dto)
+        [HttpGet("getservice/{id}")]
+        public IActionResult GetServiceById(int id)
         {
             var service = _db.Services.FirstOrDefault(s => s.Serviceid == id);
+
+
+            return Ok(service);
+        }
+
+        [HttpPut("updateservice/{id}")]
+        public IActionResult UpdateService(int id, [FromForm] AddServiceDTO dto)
+        {
+            var service = _db.Services.Find(id);
 
             if (service == null)
                 return NotFound("Service not found.");
@@ -86,6 +77,7 @@ namespace WeServe.Controllers
             service.ServiceProvidername = dto.ServiceProviderName??service.ServiceProvidername;
             
             service.Priceperhour = dto.Priceperhour ?? service.Priceperhour;
+            _db.Services.Update(service);
             _db.SaveChanges();
 
             return Ok(new { Message = "Service updated successfully." });
@@ -100,6 +92,7 @@ namespace WeServe.Controllers
                 return NotFound("Service not found.");
 
             _db.Services.Remove(service);
+
             _db.SaveChanges();
 
             return Ok(new { Message = "Service deleted successfully." });
