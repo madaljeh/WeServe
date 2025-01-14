@@ -64,23 +64,13 @@ namespace WeServe.Controllers
         [HttpGet("getbooking/{id}")]
         public IActionResult GetBookingById(int id)
         {
-            var booking = _db.BookingServices.FirstOrDefault(b => b.BookingServiceId == id);
+            var booking = _db.BookingServices.Where(b => b.Userid == id).ToList();
 
             if (booking == null)
                 return NotFound("Booking not found.");
 
-            var bookingDto = new BookingServiceDTO
-            {
-                BookingServiceId = booking.BookingServiceId,
-                Service = booking.Service,
-                Date = booking.Date,
-                DetailsProblem = booking.DetailsProblem,
-                Status = booking.Status,
-                UserId = booking.Userid,
-                ServiceId = booking.Serviceid
-            };
 
-            return Ok(bookingDto);
+            return Ok(booking);
         }
 
         [HttpPut("updatebooking/{id}")]
