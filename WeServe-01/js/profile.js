@@ -18,7 +18,7 @@ async function getalldata() {
         contaner.innerHTML += `
         <p><strong>User Name:</strong> <span>${product.userName}</span></p>
         <p><strong>First Name:</strong> <span>${product.fisrtName}</span></p>
-        <p><strong>Last Name:</strong> <span>${product.lastName}</span></p>
+        <p><strong>Last Name:</strong> <span> ${product.lastName}</span></p>
         <p><strong>City:</strong> <span></span>${product.city}</p>
         <p><strong>Gender:</strong> <span>${product.gender}</span></p>
         <p><strong>Phone:</strong> <span>${product.phone}</span></p>
@@ -57,7 +57,6 @@ async function getalldataserviceprovider() {
         <p><strong>Phone:</strong> <span>${product.phone}</span></p>
         <p><strong>Email:</strong> <span>${product.emailaddress}</span></p>
         <p><strong>Service Provider:</strong>${product.jobTitle} </p>
-        <p><strong>Price per Hour:</strong>${product.pricePerHour} JOD </p>
         <p><strong>Experience:</strong>${product.experience} </p>
 
 

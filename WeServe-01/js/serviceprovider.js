@@ -243,6 +243,8 @@ async function updateservice() {
               <td>${booking.service}</td>
               <td>${booking.user.phone}</td>
               <td>${booking.detailsProblem}</td>
+              <td>${booking.user.emailaddress}</td>
+              <td>${booking.user.City}</td>
               <td>${booking.status ? "Pending" : "Approved"}</td>
               <td>
                 <button class="btn approve" onclick="approveBooking(${booking.bookingServiceId})">Approve</button>
