@@ -65,7 +65,23 @@ namespace WeServe.Controllers
         [HttpGet("getbooking/{id}")]
         public IActionResult GetBookingById(int id)
         {
-            var booking = _db.BookingServices.Where(b => b.Userid == id).ToList();
+            var booking = _db.BookingServices.Where(b => b.Userid == id)
+                .Include(x => x.User)
+                .Select(x => new
+                {
+                    username = x.User.FisrtName + " " + x.User.LastName,
+                    x.User.Emailaddress,
+                    x.User.City,
+                    x.User.Phone,
+                    x.Service,
+                    x.BookingServiceId,
+                    x.Date,
+                    x.DetailsProblem,
+                    x.Status,
+                    x.Serviceid,
+                    x.Userid,
+
+                });
 
             if (booking == null)
                 return NotFound("Booking not found.");

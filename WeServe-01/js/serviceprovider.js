@@ -200,3 +200,71 @@ async function updateservice() {
       });
     }
   }
+
+
+
+  async function getalldatabybooking() {
+    debugger;
+    const id = localStorage.getItem("UserId");
+    const url = `https://localhost:44348/api/BookingService/GetBookingsByUserId/${id}`;
+  
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "accept": "*/*",
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+  
+      // Get the table body element
+      const tableBody = document.getElementById("orderdata");
+  
+      // Clear the table body before appending new rows
+      tableBody.innerHTML = "";
+  
+      // Iterate through the data and populate the table
+      data.forEach((item) => {
+        item.bookingServices.forEach((booking) => {
+          const bookingDate = new Date(booking.date);
+          const formattedDate = bookingDate.toISOString().split("T")[0];
+          const formattedTime = bookingDate.toTimeString().split(" ")[0];
+  
+          const row = `
+            <tr>
+              <td>${formattedDate}</td>
+              <td>${formattedTime}</td>
+              <td>${booking.user.username}</td>
+              <td>${booking.service}</td>
+              <td>${booking.user.phone}</td>
+              <td>${booking.detailsProblem}</td>
+              <td>${booking.status ? "Pending" : "Approved"}</td>
+              <td>
+                <button class="btn approve" onclick="approveBooking(${booking.bookingServiceId})">Approve</button>
+                <button class="btn reject" onclick="deletebooking(${booking.bookingServiceId})">DELETE</button>
+              </td>
+            </tr>
+          `;
+          tableBody.innerHTML += row;
+        });
+      });
+  
+      // Append the table body to the table
+      const table = document.querySelector(".order-section table");
+      if (table.querySelector("tbody")) {
+        table.removeChild(table.querySelector("tbody")); // Remove the old tbody if it exists
+      }
+      table.appendChild(tableBody);
+    } catch (error) {
+      console.error("Error fetching bookings:", error);
+    }
+  }
+  
+  // Call the function to fetch and display bookings
+  getalldatabybooking();
+  

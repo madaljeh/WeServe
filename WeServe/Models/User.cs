@@ -23,8 +23,6 @@ public partial class User
 
     public string? Experience { get; set; }
 
-    public int? PricePerHour { get; set; }
-
     public bool? RoleId { get; set; }
 
     public string? Emailaddress { get; set; }

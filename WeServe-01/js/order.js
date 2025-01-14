@@ -30,13 +30,13 @@ async function fetchBookings() {
           <tr>
             <td>${formattedDate}</td>
             <td>${formattedTime}</td>
-            <td>${booking.contactName || "N/A"}</td>
+            <td>${booking.username || "N/A"}</td>
             <td>${booking.service}</td>
             <td>${booking.phone || "N/A"}</td>
             <td>${booking.detailsProblem}</td>
+            <td>${booking.emailaddress}</td>
             <td>${booking.status ? "Pending" : "Approved"}</td>
             <td>
-              <button class="btn approve" onclick="approveBooking(${booking.bookingServiceId})">Approve</button>
               <button class="btn reject" onclick="deletebooking(${booking.bookingServiceId})">DELETE</button>
             </td>
           </tr>
@@ -107,3 +107,7 @@ async function fetchBookings() {
     // Implement API call to reject the booking
   }
   
+
+
+
+

@@ -45,8 +45,7 @@ namespace WeServe.Controllers
                 return BadRequest("Invalid registration data.");
 
             var isProvider = !string.IsNullOrEmpty(dto.JobTitle) &&
-                             !string.IsNullOrEmpty(dto.Experience) &&
-                             dto.PricePerHour.HasValue;
+                             !string.IsNullOrEmpty(dto.Experience) ;
 
             var newUser = new User
             {
@@ -59,7 +58,6 @@ namespace WeServe.Controllers
                 City = dto.City,
                 JobTitle = dto.JobTitle,
                 Experience = dto.Experience,
-                PricePerHour = dto.PricePerHour,
                 RoleId = isProvider,
                 Password = dto.Password,
             };
