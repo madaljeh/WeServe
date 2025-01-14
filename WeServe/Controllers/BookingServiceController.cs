@@ -2,6 +2,7 @@
 using WeServe.DTO;
 using WeServe.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace WeServe.Controllers
 {
@@ -106,6 +107,47 @@ namespace WeServe.Controllers
 
             return Ok(new { Message = "Booking deleted successfully." });
         }
+
+        [HttpGet("GetBookingsByUserId/{userId}")]
+        public IActionResult GetBookingsByUserId(int userId)
+        {
+            var bookings = _db.Services
+                .Include(s => s.BookingServices) // Include BookingServices
+                .ThenInclude(bs => bs.User) // Include User from BookingServices
+                .Where(s => s.Userid == userId) // Filter by UserId
+                .Select(s => new
+                {
+                    BookingServices = s.BookingServices.Select(bs => new
+                    {
+                        bs.Service,
+                        bs.BookingServiceId,
+                        bs.Date,
+                        bs.DetailsProblem,
+                        bs.Status,
+                        bs.Serviceid,
+                        bs.Userid,
+                        User = new
+                        {
+                            Username = bs.User.FisrtName + " " + bs.User.LastName, // Concatenate first and last name
+                           
+                            bs.User.Emailaddress,
+                            bs.User.Phone
+                        }
+                    }).ToList()
+                })
+                .ToList();
+
+            if (!bookings.Any())
+            {
+                return NotFound($"No bookings found for UserId: {userId}");
+            }
+
+            return Ok(bookings);
+        }
+
+
+
+
     }
 }
 
