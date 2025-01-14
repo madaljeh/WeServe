@@ -83,9 +83,9 @@ namespace WeServe.Controllers
             if (service == null)
                 return NotFound("Service not found.");
 
-            service.ServiceProvidername = dto.ServiceProviderName;
-            service.Userid = dto.UserId;
-
+            service.ServiceProvidername = dto.ServiceProviderName??service.ServiceProvidername;
+            
+            service.Priceperhour = dto.Priceperhour ?? service.Priceperhour;
             _db.SaveChanges();
 
             return Ok(new { Message = "Service updated successfully." });
