@@ -33,7 +33,8 @@ namespace WeServe.Controllers
                 {
                     servicename = x.ServiceProvidername,
                     serviceid = x.Serviceid,
-                    serviceprovider = x.User.FisrtName + x.User.LastName
+                    serviceprovider = x.User.FisrtName + " " + x.User.LastName,
+                    priceperhour = x.Priceperhour
                 });
             return Ok(users);
         }

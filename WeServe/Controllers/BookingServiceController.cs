@@ -142,12 +142,14 @@ namespace WeServe.Controllers
                         bs.Status,
                         bs.Serviceid,
                         bs.Userid,
+                     
                         User = new
                         {
                             Username = bs.User.FisrtName + " " + bs.User.LastName, // Concatenate first and last name
                            
                             bs.User.Emailaddress,
-                            bs.User.Phone
+                            bs.User.Phone,
+                            bs.User.City
                         }
                     }).ToList()
                 })
@@ -161,7 +163,17 @@ namespace WeServe.Controllers
             return Ok(bookings);
         }
 
+        [HttpPut("editorder/{id}")]
+        public IActionResult editorder(int id, ChangeStatus DTO)
+        {
+            var edit = _db.BookingServices.Where(x => x.BookingServiceId == id).FirstOrDefault();
+            edit.Status = DTO.Status;
+            _db.BookingServices.Update(edit);
+            _db.SaveChanges();
 
+
+            return Ok(edit);
+        }
 
 
     }

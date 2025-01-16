@@ -244,10 +244,15 @@ async function updateservice() {
               <td>${booking.user.phone}</td>
               <td>${booking.detailsProblem}</td>
               <td>${booking.user.emailaddress}</td>
-              <td>${booking.user.City}</td>
-              <td>${booking.status ? "Pending" : "Approved"}</td>
+              <td>${booking.user.city}</td>
               <td>
-                <button class="btn approve" onclick="approveBooking(${booking.bookingServiceId})">Approve</button>
+              <select onchange="editstatus(${booking.bookingServiceId})" id="status-${booking.bookingServiceId}" 
+                class="admin-only form-select bg-custom text-dark form-select-sm mb-3">
+                <option value="false" class="text-info" ${booking.status === false ? 'selected' : ''}>Approve</option>
+                <option value="true" class="text-success" ${booking.status === true ? 'selected' : ''}>Reject</option>
+              </select>
+              </td>
+              <td>
                 <button class="btn reject" onclick="deletebooking(${booking.bookingServiceId})">DELETE</button>
               </td>
             </tr>
@@ -270,3 +275,77 @@ async function updateservice() {
   // Call the function to fetch and display bookings
   getalldatabybooking();
   
+
+
+  async function editstatus(id) {
+    event.preventDefault();
+    let urlm = `https://localhost:44348/api/BookingService/editorder/${id}`;
+    let newStatus = document.getElementById(`status-${id}`).value === 'true';  // تحويل القيمة إلى boolean
+  
+    let response = await fetch(urlm, {
+        method: "PUT",
+        body: JSON.stringify({
+            status: newStatus,  // إرسال القيمة boolean
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    if (response.status == 200) {
+        Swal.fire({
+            title: "Success!",
+            text: "Status updated successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+        });
+
+        let order = allOrders.find((order) => order.bookingServiceId === id);
+        if (order) {
+            order.status = newStatus;
+        }
+
+        displayOrders(allOrders);
+    } else {
+        Swal.fire({
+            title: "Error!",
+            text: "Error updating status",
+            icon: "error",
+            confirmButtonText: "Try Again",
+        });
+    }
+}
+async function deletebooking(id) {
+  const result = await Swal.fire({
+    title: "Are you sure?",
+    text: "This service will be deleted!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Yes, delete it!",
+  });
+  if (result.isConfirmed) {
+    var delet = `https://localhost:44348/api/BookingService/deletebooking/${id}`;
+    var response = await fetch(delet, {
+      method: "DELETE",
+    });
+    console.log("Response Status:", response.status);
+    console.log("Response OK:", response.ok);
+    if (response.ok) {
+      await Swal.fire(
+        "Deleted!",
+        "The service has been deleted successfully.",
+        "success"
+      );
+      location.reload();
+    } else {
+      const errorMessage = await response.text();
+      await Swal.fire(
+        "Error!",
+        `There was an error deleting the service: ${errorMessage}`,
+        "error"
+      );
+    }
+  }
+}

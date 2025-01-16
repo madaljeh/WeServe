@@ -35,7 +35,7 @@ async function fetchBookings() {
             <td>${booking.phone || "N/A"}</td>
             <td>${booking.detailsProblem}</td>
             <td>${booking.emailaddress}</td>
-            <td>${booking.City}</td>
+            <td>${booking.city}</td>
             <td>${booking.status ? "Pending" : "Approved"}</td>
             <td>
               <button class="btn reject" onclick="deletebooking(${booking.bookingServiceId})">DELETE</button>

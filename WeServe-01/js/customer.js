@@ -1,6 +1,5 @@
 // Fetch services and populate the dropdowns
 fetch('https://localhost:44348/api/Register/getallusersinfo', {
-  
   method: 'GET',
   headers: {
     'Accept': '*/*',
@@ -41,10 +40,12 @@ fetch('https://localhost:44348/api/Register/getallusersinfo', {
       // Populate the "Choose Provider" dropdown with filtered users
       filteredUsers.forEach(user => {
         const providerName = user.serviceprovider.trim();
+        const priceperhour = user.priceperhour; // Extract the price per hour
         if (providerName) {
           const option = document.createElement('option');
           option.value = user.serviceid; // Set the service ID as the value
-          option.textContent = providerName; // Display the service provider's name
+          option.textContent = `${providerName} - $${priceperhour}/hour`; // Display the provider's name with price per hour
+          option.dataset.price = priceperhour; // Store price as a data attribute for further use if needed
           chooseProviderDropdown.appendChild(option);
         }
       });
@@ -56,7 +57,6 @@ fetch('https://localhost:44348/api/Register/getallusersinfo', {
 
 // Handle form submission for booking
 document.querySelector('form').addEventListener('submit', function (event) {
-  debugger
   event.preventDefault(); // Prevent the default form submission
 
   // Collect data from the form
@@ -90,6 +90,40 @@ document.querySelector('form').addEventListener('submit', function (event) {
     userId: localStorage.getItem("UserId"), // Provider's ID as the user ID
     serviceId: parseInt(providerId), // Adjust serviceId based on your specific logic
   };
+
+  // Send the booking data to the API
+  fetch('https://localhost:44348/api/Booking/submitbooking', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(bookingData),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      Swal.fire({
+        title: "Success!",
+        text: "Your booking has been submitted.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+    })
+    .catch(error => {
+      console.error('Error submitting booking:', error);
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to submit booking. Please try again later.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    });
+
+
 
   // Send the booking data to the API
   fetch('https://localhost:44348/api/BookingService/createbooking', {
@@ -128,5 +162,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
       console.error('Booking Error:', error);
     });
 });
+
+
 
 
