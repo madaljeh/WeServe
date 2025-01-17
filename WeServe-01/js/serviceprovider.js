@@ -169,7 +169,7 @@ async function updateservice() {
     var update = `https://localhost:44348/api/AddService/updateservice/${id}`;
     var formData = new FormData(document.getElementById("edit-service-form"));
   
-    // طباعة بيانات النموذج
+    // prent data
   
     var response = await fetch(update, {
       method: "PUT",
@@ -280,12 +280,12 @@ async function updateservice() {
   async function editstatus(id) {
     event.preventDefault();
     let urlm = `https://localhost:44348/api/BookingService/editorder/${id}`;
-    let newStatus = document.getElementById(`status-${id}`).value === 'true';  // تحويل القيمة إلى boolean
+    let newStatus = document.getElementById(`status-${id}`).value === 'true';  // convert value to boolean
   
     let response = await fetch(urlm, {
         method: "PUT",
         body: JSON.stringify({
-            status: newStatus,  // إرسال القيمة boolean
+            status: newStatus,  // send a boolean value
         }),
         headers: {
             "Content-Type": "application/json",

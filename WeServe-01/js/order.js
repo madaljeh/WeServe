@@ -51,6 +51,7 @@ async function fetchBookings() {
         table.removeChild(table.querySelector("tbody")); // Remove the old tbody if it exists
       }
       table.appendChild(tableBody);
+      
     } catch (error) {
       console.error("Error fetching bookings:", error);
     }
