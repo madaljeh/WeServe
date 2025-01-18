@@ -18,19 +18,6 @@ namespace WeServe.Controllers
 
 
 
-        //[HttpGet("getallservices")]
-        //public IActionResult GetAllServices()
-        //{
-        //    var services = _db.Services.Select(s => new AddServiceDTO
-        //    {
-        //        ServiceId = s.Serviceid,
-        //        ServiceProviderName = s.ServiceProvidername,
-        //        UserId = s.Userid
-        //    }).ToList();
-
-        //    return Ok(services);
-        //}
-
         [HttpPost("createservice")]
         public IActionResult CreateService([FromBody] AddServiceDTO dto)
         {
