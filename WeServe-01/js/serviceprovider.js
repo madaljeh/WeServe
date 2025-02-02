@@ -2,7 +2,7 @@ const url = "https://localhost:44348/api/AddService/createservice";
 
 async function newservice(event) {
   debugger
-  // event.preventDefault(); // Uncomment if this is used within a form submission
+  
 
   const data = {
     serviceProviderName: document.getElementById("serviceProviderName").value,
@@ -30,12 +30,12 @@ async function newservice(event) {
         confirmButtonText: "OK",
       });
 
-      // Delay the reload for 3 seconds (3000ms)
+     
       setTimeout(() => {
         location.reload();
       }, 1500);
     } else {
-      // Handle errors based on the response status
+      // Handle errors 
       let errorMessage;
       switch (response.status) {
         case 404:
@@ -56,7 +56,7 @@ async function newservice(event) {
       });
     }
   } catch (error) {
-    // General error handling (like network issues)
+    // General error 
     console.error("Error while adding the service:", error);
     Swal.fire({
       title: "Error!",

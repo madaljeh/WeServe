@@ -1,9 +1,9 @@
 document.getElementById('contactForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent the form from submitting the default way
 
-  // Collect form data
+  
   const formData = {
-    id: 0, // Assuming this is generated on the server
+    id: 0, 
     fullname: document.getElementById('fullname').value.trim(),
     email: document.getElementById('email').value.trim(),
     phonenumber: document.getElementById('phonenumber').value.trim(),
